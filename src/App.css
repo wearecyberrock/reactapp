@@ -76,6 +76,28 @@ body, button, input, textarea, select {
   min-height: 100vh;
   padding: 5rem 2rem 3rem;
   overflow: hidden;
+  background-image: linear-gradient(rgba(4,6,23,0.35), rgba(4,6,23,0.18)), url('/herobackground.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ensure hero text is readable on the background image */
+.hero-section .hero-copy {
+  color: #ffffff;
+}
+
+.hero-section .eyebrow {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+.hero-section .hero-copy h1 {
+  color: #ffffff;
+}
+
+.hero-section .hero-copy p {
+  color: rgba(255,255,255,0.9);
 }
 
 .hero-inner {
