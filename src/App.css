@@ -80,6 +80,25 @@ body, button, input, textarea, select {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.hero-section {
+  z-index: 0;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 6, 23, 0.28);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-section .hero-inner {
+  position: relative;
+  z-index: 1;
 }
 
 /* Ensure hero text is readable on the background image */
