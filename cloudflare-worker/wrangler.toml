@@ -1,0 +1,10 @@
+name = "reactapp-ai-proxy"
+main = "index.js"
+compatibility_date = "2026-01-01"
+
+# Fill these values when deploying
+# account_id = "your-cloudflare-account-id"
+# zone_id = "optional-zone-id-if-using-routes"
+
+[vars]
+__CLOUD_BACKEND_URL__ = ""
