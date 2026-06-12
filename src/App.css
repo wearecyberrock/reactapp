@@ -166,6 +166,55 @@ body, button, input, textarea, select {
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 2.5rem;
+
+}
+/* 1. Target the actual items inside the container */
+.hero-actions a, 
+.hero-actions button {
+  /* Layout & Spacing */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem; /* Vertical and horizontal breathing room */
+  
+  /* Borders & Corners */
+  border-radius: 0.5rem; /* Smooth rounded corners */
+  border: 1px solid transparent;
+  
+  /* Typography */
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none; /* Removes link underlines */
+  cursor: pointer;
+  
+  /* Smooth color transition on hover */
+  transition: all 0.2s ease-in-out;
+}
+
+/* 2. Style the primary action button (e.g., solid background) */
+.hero-actions a:first-child,
+.hero-actions button:first-child {
+  background-color: #0f172a; /* Sleek dark color */
+  color: #ffffff;
+}
+
+.hero-actions a:first-child:hover,
+.hero-actions button:first-child:hover {
+  background-color: #1e293b; /* Slightly lighter on hover */
+}
+
+/* 3. Style the secondary action button (e.g., outline/ghost style) */
+.hero-actions a:nth-child(2),
+.hero-actions button:nth-child(2) {
+  background-color: transparent;
+  border-color: #cbd5e1; /* Subtle border grey */
+  color: #334155;
+}
+
+.hero-actions a:nth-child(2):hover,
+.hero-actions button:nth-child(2):hover {
+  background-color: #f8fafc; /* Very light background tint */
+  border-color: #94a3b8;
 }
 
 .hero-metrics {
