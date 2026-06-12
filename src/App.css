@@ -206,15 +206,14 @@ body, button, input, textarea, select {
 /* 3. Style the secondary action button (e.g., outline/ghost style) */
 .hero-actions a:nth-child(2),
 .hero-actions button:nth-child(2) {
-  background-color: transparent;
-  border-color: #cbd5e1; /* Subtle border grey */
-  color: #334155;
+ background-color: #0f172a;
+   color: #ffffff;
 }
 
 .hero-actions a:nth-child(2):hover,
 .hero-actions button:nth-child(2):hover {
-  background-color: #f8fafc; /* Very light background tint */
-  border-color: #94a3b8;
+  background-color: #1e293b; /* */
+  
 }
 
 .hero-metrics {
