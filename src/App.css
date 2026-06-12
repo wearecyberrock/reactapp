@@ -46,6 +46,7 @@ body, button, input, textarea, select {
   font-weight: 800;
   letter-spacing: -0.03em;
   color: #0f172a;
+  padding-left: 1rem;
 }
 
 .navbar-links {
