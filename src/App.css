@@ -264,9 +264,29 @@ body, button, input, textarea, select {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(15, 23, 42, 0.08);
   box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+  
+  /* Use 'forwards' to keep the element visible after the fade-in */
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  animation: fadeIn 0.5s ease forwards 2s, float 3s ease-in-out infinite 2.5s;
+  
+  /* Use transition for hover only */
+  transition: transform 0.3s ease;
+}
+
+/* Initial fade-in animation */
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Hover Expand Effect */
+.hero-card:hover {
+  transform: scale(1.1) !important; /* Scale is better at 1.1 or 1.2 for cards */
 }
 
 .hero-card-top {
