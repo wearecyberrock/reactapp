@@ -255,7 +255,6 @@ body, button, input, textarea, select {
   width: 100%;
   height: 100%;
 }
-
 .hero-card {
   position: absolute;
   width: 260px;
@@ -267,7 +266,7 @@ body, button, input, textarea, select {
   
   /* Use 'forwards' to keep the element visible after the fade-in */
   opacity: 0;
-  animation: fadeIn s ease forwards 2s, float 3s ease-in-out infinite 2.5s;
+  animation: fadeIn 0.5s ease forwards 2s, float 3s ease-in-out infinite 2.5s;
   
   /* Use transition for hover only */
   transition: transform 0.3s ease;
