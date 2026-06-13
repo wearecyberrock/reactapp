@@ -1,4 +1,5 @@
 ﻿import { Fragment, useEffect, useRef } from "react";
+import ScrollReveal from "./ScrollReavel";
 
 function Parallaxtest() {
   const passportRef = useRef<HTMLDivElement | null>(null);
@@ -166,26 +167,34 @@ function Parallaxtest() {
 
       <section className="info-section" id="about">
         <div className="section-heading">
-          <span className="eyebrow">How we help you</span>
-          <h2>Everything your visa application needs in one premium path</h2>
-          <p>
-            Our service is designed to make the U.S. visa preparation process more transparent, more accurate, and less stressful.
-          </p>
+          <ScrollReveal>
+            <span className="eyebrow">How we help you</span>
+            <h2>Everything your visa application needs in one premium path</h2>
+            <p>
+              Our service is designed to make the U.S. visa preparation process more transparent, more accurate, and less stressful.
+            </p>
+          </ScrollReveal>
         </div>
 
         <div className="feature-grid">
-          <article className="feature-card">
-            <h3>Review your DS-160</h3>
-            <p>We inspect your answers and highlight any inconsistencies before submission.</p>
-          </article>
-          <article className="feature-card">
-            <h3>Prepare your interview story</h3>
-            <p>We help you package your travel purpose, employment, and ties into a clear, convincing narrative.</p>
-          </article>
-          <article className="feature-card">
-            <h3>Prevent common denials</h3>
-            <p>We identify the top reasons applicants are denied and show you how to avoid them.</p>
-          </article>
+          <ScrollReveal>
+            <article className="feature-card">
+              <h3>Review your DS-160</h3>
+              <p>We inspect your answers and highlight any inconsistencies before submission.</p>
+            </article>
+          </ScrollReveal>
+          <ScrollReveal>
+            <article className="feature-card">
+              <h3>Prepare your interview story</h3>
+              <p>We help you package your travel purpose, employment, and ties into a clear, convincing narrative.</p>
+            </article>
+          </ScrollReveal>
+          <ScrollReveal>
+            <article className="feature-card">
+              <h3>Prevent common denials</h3>
+              <p>We identify the top reasons applicants are denied and show you how to avoid them.</p>
+            </article>
+          </ScrollReveal>
         </div>
       </section>
 
