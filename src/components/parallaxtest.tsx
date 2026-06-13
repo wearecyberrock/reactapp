@@ -167,7 +167,7 @@ function Parallaxtest() {
         </ScrollReveal>
       </section>
 
-      <section className="info-section" id="about">
+      <section className="info-section">
         <ScrollReveal>
           <div className="section-heading">
             <span className="eyebrow">How we help you</span>

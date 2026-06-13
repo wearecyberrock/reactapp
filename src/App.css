@@ -420,6 +420,7 @@ body, button, input, textarea, select {
   font-size: 1rem;
 }
 
+.about-section,
 .info-section,
 .process-section,
 .testimonial-section,
@@ -429,6 +430,51 @@ body, button, input, textarea, select {
   max-width: 1320px;
   margin: 0 auto 4rem;
   padding: 0 2rem;
+}
+
+.about-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+}
+
+.about-media {
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.12);
+}
+
+.about-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-copy {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.about-card,
+.about-contact {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.about-card h3,
+.about-contact h4 {
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.about-card p,
+.about-contact p {
+  color: #475569;
+  line-height: 1.8;
 }
 
 .feature-grid,
