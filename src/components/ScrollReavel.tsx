@@ -8,14 +8,12 @@ const ScrollReveal = ({ children }: ScrollRevealProps) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const domRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+ useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries, obs) => {
+      (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            obs.unobserve(entry.target);
-          }
+          // If the element is in view, show it; if not, hide it
+          setIsVisible(entry.isIntersecting);
         });
       },
       { threshold: 0.15 }
@@ -27,7 +25,7 @@ const ScrollReveal = ({ children }: ScrollRevealProps) => {
     }
 
     return () => {
-      observer.disconnect();
+      if (currentRef) observer.unobserve(currentRef);
     };
   }, []);
 
