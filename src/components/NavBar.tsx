@@ -4,6 +4,7 @@ function NavBar() {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
+        <img src="/jahtaria-logo.png" alt="Jahtaria Travel Services" className="logo-icon" />
         <h2>Jahtaria Travel</h2>
       </div>
       <ul className="navbar-links">
