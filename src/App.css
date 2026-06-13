@@ -283,10 +283,10 @@ body, button, input, textarea, select {
   50% { transform: translateY(-20px); }
 }
 
-/* Hover Expand Effect */
+/* Hover Expand Effect * /
 .hero-card:hover {
-  transform: scale(1.1) !important; /* Scale is better at 1.1 or 1.2 for cards */
-}
+  transform: scale(1.1) !important; /* Scale is better at 1.1 or 1.2 for cards * /
+} */
 
 .hero-card-top {
   top: 0;
