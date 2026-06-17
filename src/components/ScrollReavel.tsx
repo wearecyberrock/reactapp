@@ -1,11 +1,11 @@
-import { useEffect, useRef, useState, ReactNode } from 'react';
+import React, { useEffect, useRef, useState, ReactNode } from 'react';
 
 interface ScrollRevealProps {
   children: ReactNode;
 }
 
-const ScrollReveal = ({ children }: ScrollRevealProps) => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+const ScrollReveal: React.FC<ScrollRevealProps> = ({ children }) => {
+  const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement>(null);
 
  useEffect(() => {

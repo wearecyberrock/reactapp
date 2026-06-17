@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './SumfestPopup.css'; // Importing the premium styles
 
-export default function SumfestPopup() {
+const SumfestPopup: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSupportRequest = () => {
@@ -65,4 +65,6 @@ export default function SumfestPopup() {
       )}
     </div>
   );
-}
+};
+
+export default SumfestPopup;

@@ -1,4 +1,4 @@
-import ScrollReveal from "./ScrollReavel";
+import ScrollReveal from "./ScrollReavel"; // Note: keeping filename as provided but component is typed
 
 function AboutPage() {
   return (
