@@ -272,7 +272,8 @@ body, button, input, textarea, select {
 .hero-card {
   position: absolute;
   width: 260px;
-  padding: 1.75rem;
+  min-height: 180px; /* Adjusted for a more compact height */
+  padding: 1.25rem; /* Reduced vertical padding */
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(15, 23, 42, 0.08);
@@ -308,7 +309,7 @@ body, button, input, textarea, select {
 }
 
 .hero-card-bottom {
-  bottom: 0;
+  top: 0;
   right: 0;
 }
 

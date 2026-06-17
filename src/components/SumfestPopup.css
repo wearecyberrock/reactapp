@@ -92,6 +92,7 @@
   width: 100%;
   height: auto;
   display: block;
+  transform: translateY(20px);
 }
 
 /* Reggae Color Accent Bar */

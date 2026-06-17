@@ -5,7 +5,7 @@ const NavBar: React.FC = () => {
     <nav className="navbar">
       <div className="navbar-logo">
         <img src="/jahtaria-logo.png" alt="Jahtaria Travel Services" className="logo-icon" />
-        <h2>Jahtaria Travel Services</h2>
+        <h2>Jahtaria Travel Services.version2</h2>
       </div>
       <ul className="navbar-links">
         <li><a href="#home">Home</a></li>

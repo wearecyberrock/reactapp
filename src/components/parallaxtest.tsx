@@ -151,7 +151,7 @@ const ParallaxTest: React.FC = () => {
 
                 <motion.div 
                   className="hero-card hero-card-bottom"
-                  initial={{ opacity: 0, y: 18 }}
+                  initial={{ opacity: 0, y: 16 }} // Matched with hero-card-top's offset
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}
                   transition={{ duration: 0.6, delay: 0.7 }}
