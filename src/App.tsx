@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import Parallaxtest from "./components/parallaxtest";
 import AiChat from "./ai-integration/AiChat";
 import AboutPage from "./components/Aboutpage";
+import SumfestPopup from "./components/SumfestPopup";
 import "./App.css"
 
 
@@ -14,6 +15,7 @@ function App() {
       <Parallaxtest />
       <AboutPage />
       <AiChat />
+      <SumfestPopup />
     </div>
   );
 }
