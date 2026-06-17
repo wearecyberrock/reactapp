@@ -1,6 +1,7 @@
-import ScrollReveal from "./ScrollReavel"; // Note: keeping filename as provided but component is typed
+import React from 'react';
+import ScrollReveal from "./ScrollReveal";
 
-function AboutPage() {
+const AboutPage: React.FC = () => {
   return (
     <section className="about-section" id="about">
       <div className="section-heading">
@@ -53,6 +54,6 @@ function AboutPage() {
       </div>
     </section>
   );
-}
+};
 
 export default AboutPage;

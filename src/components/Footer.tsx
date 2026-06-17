@@ -1,4 +1,6 @@
-function Footer() {
+import React from 'react';
+
+const Footer: React.FC = () => {
   return (
     <footer className="footer-section">
       <div className="footer-content">
@@ -29,10 +31,10 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; 2026 Jahtaria Travel Services. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Jahtaria Travel Services. All rights reserved.</p>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

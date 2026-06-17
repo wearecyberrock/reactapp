@@ -1,6 +1,8 @@
-﻿import { motion } from "framer-motion";
+﻿import React, { useState } from 'react';
+import { motion, Variants } from "framer-motion";
+import SumfestPopup from './SumfestPopup'; // Import the SumfestPopup component
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
@@ -9,7 +11,26 @@ const sectionVariants = {
   }
 };
 
-function Parallaxtest() {
+const pulseVariants: Variants = {
+  initial: { scale: 1, opacity: 1 },
+  animate: {
+    scale: [1, 1.05, 1], // Scale up slightly and back
+    opacity: [1, 0.8, 1], // Fade slightly and back
+    transition: {
+      duration: 1.5, // Animation duration
+      repeat: Infinity, // Repeat indefinitely
+      ease: "easeInOut" // Smooth easing
+    }
+  }
+};
+
+
+const ParallaxTest: React.FC = () => {
+  const [showSumfestPopup, setShowSumfestPopup] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const particles = Array.from({ length: 8 });
+
   return (
     <>
       <section className="hero-section" id="home">
@@ -17,7 +38,7 @@ function Parallaxtest() {
           className="hero-inner"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: false, amount: 0.1 }}
         >
           <motion.div className="hero-copy" variants={sectionVariants}>
             <span className="eyebrow">Premium U.S. Visa Preparation</span>
@@ -29,6 +50,53 @@ function Parallaxtest() {
             <div className="hero-actions">
               <a className="btn-primary" href="#pricing">Get the Guide</a>
               <a className="btn-secondary" href="#contact">Book a Review</a>
+              <div className="jahtaria-btn-wrapper" style={{ position: 'relative' }}>
+                {isHovered && 
+                  particles.map((_, i) => {
+                    const angle = (i * 45 * Math.PI) / 180;
+                    const distance = 40 + Math.random() * 40; 
+                    const destinationX = Math.cos(angle) * distance;
+                    const destinationY = Math.sin(angle) * distance;
+
+                    return (
+                      <motion.span
+                        key={i}
+                        className="particle"
+                        initial={{ x: "-50%", y: "-50%", left: "50%", top: "50%", scale: 1, opacity: 1 }}
+                        animate={{
+                          x: `calc(-50% + ${destinationX}px)`,
+                          y: `calc(-50% + ${destinationY}px)`,
+                          scale: 0,
+                          opacity: 0,
+                        }}
+                        transition={{
+                          duration: 0.8,
+                          repeat: Infinity,
+                          delay: i * 0.05,
+                          ease: "easeOut",
+                        }}
+                      />
+                    );
+                  })}
+
+                <motion.button
+                  className="jahtaria-trigger-btn"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  onClick={() => setShowSumfestPopup(true)}
+                  whileHover={{ scale: 1.06, boxShadow: "0px 0px 20px rgba(255, 215, 0, 0.4)" }}
+                  whileTap={{ scale: 0.96 }}
+                >
+                  <motion.span
+                    className="shine-layer"
+                    animate={{ left: ["-100%", "200%"] }}
+                    transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <span className="jahtaria-btn-content">Sumfest 2026 Travel Support</span>
+                </motion.button>
+              </div>
+
+             
             </div>
 
             <div className="hero-metrics">
@@ -53,7 +121,7 @@ function Parallaxtest() {
                   className="hero-card hero-card-top"
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
                   <p className="card-label">Ready for embassy review</p>
@@ -66,7 +134,7 @@ function Parallaxtest() {
                     className="author-portrait"
                     initial={{ opacity: 0, scale: 0.88, x: "-50%", y: "-50%" }}
                     whileInView={{ opacity: 1, scale: 1.06, x: "-50%", y: "-50%" }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                   >
                     <img src="/man.jpg" alt="Jordan from Jahtaria Travel Services" />
@@ -86,7 +154,7 @@ function Parallaxtest() {
                   className="hero-card hero-card-bottom"
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.6, delay: 0.7 }}
                 >
                   <p className="card-label">Personalized support</p>
@@ -102,7 +170,7 @@ function Parallaxtest() {
         className="info-section"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: false, amount: 0.2 }}
         variants={sectionVariants}
       >
           <div className="section-heading">
@@ -134,7 +202,7 @@ function Parallaxtest() {
         id="services"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: false, amount: 0.2 }}
         variants={sectionVariants}
       >
           <div className="section-heading reverse">
@@ -165,7 +233,7 @@ function Parallaxtest() {
         className="testimonial-section"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: false, amount: 0.2 }}
         variants={sectionVariants}
       >
           <div className="section-heading">
@@ -194,7 +262,7 @@ function Parallaxtest() {
         id="pricing"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: false, amount: 0.2 }}
         variants={sectionVariants}
       >
           <div className="section-heading">
@@ -246,7 +314,7 @@ function Parallaxtest() {
         id="contact"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: false, amount: 0.2 }}
         variants={sectionVariants}
       >
           <div className="section-heading">
@@ -270,8 +338,10 @@ function Parallaxtest() {
 
           <p className="footer-note">© 2026 Jahtaria Travel. All rights reserved.</p>
       </motion.section>
+
+      <SumfestPopup isOpen={showSumfestPopup} setIsOpen={setShowSumfestPopup} />
     </>
   );
-}
+};
 
-export default Parallaxtest;
+export default ParallaxTest;

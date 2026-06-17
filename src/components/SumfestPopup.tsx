@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './SumfestPopup.css'; // Importing the premium styles
 
-const SumfestPopup: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface SumfestPopupProps {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}
+
+const SumfestPopup: React.FC<SumfestPopupProps> = ({ isOpen, setIsOpen }) => {
 
   const handleSupportRequest = () => {
     window.open('https://wa.me/18762957011?text=I%20am%20interested%20in%20Sumfest%202026%20Travel%20Support', '_blank');
@@ -10,18 +14,13 @@ const SumfestPopup: React.FC = () => {
   };
 
   return (
-    <div>
-      {/* Floating Trigger Button */}
-      <button className="jahtaria-trigger-btn" onClick={() => setIsOpen(true)}>
-        Sumfest 2026 Travel Support
-      </button>
-
+    <>
       {/* The Modal Overlay */}
       {isOpen && (
         <div className="jahtaria-overlay">
           <div className="jahtaria-modal">
             
-            {/* Close Button */}
+            {/* Close Button */} {/* Added aria-label for accessibility */}
             <button className="jahtaria-close-btn" onClick={() => setIsOpen(false)}>
               &times;
             </button>
@@ -61,9 +60,9 @@ const SumfestPopup: React.FC = () => {
             </div>
 
           </div>
-        </div>
+        </div> 
       )}
-    </div>
+    </>
   );
 };
 

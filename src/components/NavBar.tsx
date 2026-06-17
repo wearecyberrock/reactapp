@@ -1,4 +1,6 @@
-﻿function NavBar() {
+﻿import React from 'react';
+
+const NavBar: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -15,6 +17,6 @@
       </ul>
     </nav>
   );
-}
+};
 
 export default NavBar;

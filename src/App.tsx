@@ -1,25 +1,23 @@
+import React from 'react';
 import NavBar from "./components/NavBar";
-import Parallaxtest from "./components/parallaxtest";
+import ParallaxTest from './components/parallaxtest';
 import AiChat from "./ai-integration/AiChat";
 import AboutPage from "./components/Aboutpage";
-import Footer from "./components/Footer";
-import SumfestPopup from "./components/SumfestPopup";
+import Footer from "./components/Footer"; // Keep Footer
 import "./App.css"
 
 
-
-function App() {
+const App: React.FC = () => {
   return (
     <div>
       <NavBar />
-      <Parallaxtest />
+      <ParallaxTest />
       <AboutPage />
       <AiChat />
-      <Footer />
-      <SumfestPopup />
+      <Footer /> 
     </div>
   );
-}
+};
 
 
 export default App;

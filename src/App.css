@@ -175,27 +175,28 @@ body, button, input, textarea, select {
 }
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 2.5rem;
-
+  width: 100%;
 }
 /* 1. Target the actual items inside the container */
 .hero-actions a, 
-.hero-actions button {
+.hero-actions .jahtaria-btn-wrapper button {
   /* Layout & Spacing */
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem; /* Vertical and horizontal breathing room */
+  padding: 0.3rem 1.25rem; /* 8px top/bottom, 20px left/right */
   
   /* Borders & Corners */
+  width: 100%;
   border-radius: 0.5rem; /* Smooth rounded corners */
   border: 1px solid transparent;
   
   /* Typography */
-  font-size: 0.95rem;
+  font-size: 0.95rem; /* Ensure consistent font size */
   font-weight: 600;
   text-decoration: none; /* Removes link underlines */
   cursor: pointer;
@@ -644,8 +645,7 @@ body, button, input, textarea, select {
   }
 
   .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
+    grid-template-columns: 1fr;
   }
 
   .hero-metric {
@@ -788,21 +788,61 @@ body, button, input, textarea, select {
 }
 /* Trigger Button */
 .jahtaria-trigger-btn {
-  padding: 12px 24px;
-  background-color: #1a472a;
-  color: #ffd700;
-  border: 2px solid #ffd700;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
+  position: relative;
+  width: 100%; /* Ensures it fills its grid column */
+  background: linear-gradient(90deg, #1a472a 0%, #ffd700 50%, #ce1126 100%);
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+  background-clip: padding-box;
+  background-size: 200% auto;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem; /* Consistent with other buttons */
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: background-position 0.5s ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.625rem 1.5rem; /* Adjusted to match other buttons */
+  z-index: 10;
 }
 
 .jahtaria-trigger-btn:hover {
+  background-position: right center;
+}
+
+.jahtaria-btn-content {
+  position: relative;
+  z-index: 10;
+}
+
+.shine-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-12deg);
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
   background-color: #ffd700;
-  color: #1a472a;
-  transform: scale(1.05);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  box-shadow: 0 0 10px #ffd700;
 }
 
 /* Modal Overlay */
