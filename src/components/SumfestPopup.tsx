@@ -5,14 +5,13 @@ export default function SumfestPopup() {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSupportRequest = () => {
-    // This opens your inquiry form page in a new tab
-    window.open('YOUR_FORM_LINK_HERE', '_blank');
+    window.open('https://wa.me/18762957011?text=I%20am%20interested%20in%20Sumfest%202026%20Travel%20Support', '_blank');
     setIsOpen(false); 
   };
 
   return (
     <div>
-      {/* Trigger Button (Just for testing visibility) */}
+      {/* Floating Trigger Button */}
       <button className="jahtaria-trigger-btn" onClick={() => setIsOpen(true)}>
         Sumfest 2026 Travel Support
       </button>

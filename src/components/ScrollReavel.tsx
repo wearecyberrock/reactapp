@@ -12,8 +12,9 @@ const ScrollReveal = ({ children }: ScrollRevealProps) => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // If the element is in view, show it; if not, hide it
-          setIsVisible(entry.isIntersecting);
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
         });
       },
       { threshold: 0.15 }
