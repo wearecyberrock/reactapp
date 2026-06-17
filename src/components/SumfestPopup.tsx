@@ -9,8 +9,8 @@ interface SumfestPopupProps {
 const SumfestPopup: React.FC<SumfestPopupProps> = ({ isOpen, setIsOpen }) => {
 
   const handleSupportRequest = () => {
-    window.open('https://wa.me/18762957011?text=I%20am%20interested%20in%20Sumfest%202026%20Travel%20Support', '_blank');
-    setIsOpen(false); 
+    setIsOpen(false);
+    window.open('/sumfest-inquiry', '_blank');
   };
 
   return (

@@ -1,4 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { send } from '@emailjs/browser';
+import './components/sumfestform.css';
 
 interface FormData {
   fullName: string;
@@ -39,6 +41,8 @@ export default function SumfestTravelForm() {
     additionalNotes: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
@@ -62,13 +66,56 @@ export default function SumfestTravelForm() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here (e.g., API call or EmailJS)
-    console.log('Form Submitted Data:', formData);
-    alert('Thank you! Your travel inquiry has been submitted.');
+    setIsSubmitting(true);
+
+    // Prepare the parameters for your EmailJS template
+    const templateParams = {
+      ...formData,
+      helpNeeded: formData.helpNeeded.join(', '), // Convert array to readable string
+    };
+
+    const serviceId = 'service_91zmng8';   // Replace with your EmailJS Service ID
+    const adminTemplateId = 'template_xk9vnxj'; // The one you receive
+    const welcomeTemplateId = 'template_67sydho'; // The one the customer receives
+
+    // Send both emails using Promise.all
+    Promise.all([
+      send(serviceId, adminTemplateId, templateParams),
+      send(serviceId, welcomeTemplateId, templateParams)
+    ])
+      .then(() => {
+        alert('Thank you! Your travel inquiry has been submitted successfully and a confirmation email has been sent to you.');
+        // Reset Form
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          whatsAppNumber: '',
+          originLocation: '',
+          travelStatus: '',
+          arrivalDate: '',
+          arrivalAirport: '',
+          accommodationStatus: '',
+          groupSize: '',
+          helpNeeded: [],
+          hasTicket: '',
+          preferredContact: '',
+          budgetRange: '',
+          referralCode: '',
+          additionalNotes: '',
+        });
+      })
+      .catch((err) => {
+        console.error('FAILED...', err);
+        alert('Something went wrong. Please try again or contact us via WhatsApp.');
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
-    <div className="max-w-3xl mx-auto my-10 p-6 bg-white rounded-lg shadow-md text-gray-800">
+    <div id="sumfest-form" className="max-w-3xl mx-auto my-10 p-6 bg-white rounded-lg shadow-md text-gray-800">
       {/* Header Section */}
       <div className="mb-8 border-b pb-6">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -395,9 +442,10 @@ export default function SumfestTravelForm() {
         <div className="pt-2">
           <button
             type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md shadow transition duration-200 ease-in-out transform hover:-translate-y-0.5 active:translate-y-0"
+            disabled={isSubmitting}
+            className={`w-full ${isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'} text-white font-bold py-3 px-6 rounded-md shadow transition duration-200 ease-in-out transform hover:-translate-y-0.5 active:translate-y-0`}
           >
-            Submit Travel Inquiry
+            {isSubmitting ? 'Sending Inquiry...' : 'Submit Travel Inquiry'}
           </button>
         </div>
       </form>
