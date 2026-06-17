@@ -1,7 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { motion, Variants } from "framer-motion";
-import SumfestPopup from './SumfestPopup'; // Import the SumfestPopup component
-
+import SumfestPopup from './SumfestPopup'; // Explicit
 const sectionVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
