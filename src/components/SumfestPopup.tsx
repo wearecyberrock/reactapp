@@ -29,7 +29,7 @@ const SumfestPopup: React.FC<SumfestPopupProps> = ({ isOpen, setIsOpen }) => {
             <div className="jahtaria-image-header">
               {/* Replace 'sumfest-image.jpg' with your actual image path in the public folder */}
               <img 
-                src="/sumfest-image.jpg" 
+                src="/sumfest-image.jpg?v=2" 
                 alt="Reggae Sumfest 2026 Jamaica" 
                 className="jahtaria-header-img"
               />

@@ -1,22 +1,711 @@
+/* CSS Variables for the Reggae Sumfest Theme */
+:root {
+  --reggae-green: #1a472a;
+  --reggae-green-hover: #13331e;
+  --reggae-green-light: #eef7f2;
+  --reggae-gold: #ffd700;
+  --reggae-red: #ce1126;
+  --reggae-red-light: #fff0f1;
+  --text-dark: #0f172a;
+  --text-muted: #475569;
+  --text-light: #94a3b8;
+  --bg-card: rgba(255, 255, 255, 0.96);
+  --border-color: rgba(15, 23, 42, 0.08);
+  --shadow-premium: 0 20px 50px rgba(15, 23, 42, 0.08);
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Page Wrapper Background (already exists in App.tsx) */
 .form-page-wrapper {
   min-height: 100vh;
   background: radial-gradient(circle at top, rgba(224, 239, 255, 0.85), transparent 28%),
     linear-gradient(180deg, #f8fbff 0%, #eef4ff 40%, #f5f8ff 100%);
 }
 
-#sumfest-form {
-  animation: formFadeIn 0.6s ease-out;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.1);
+/* Main Form Card Container */
+.sumfest-form-card {
+  max-width: 820px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 28px;
+  box-shadow: var(--shadow-premium);
+  overflow: hidden;
+  animation: formSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-@keyframes formFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+@keyframes formSlideUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Decorative Header Banner */
+.sumfest-form-banner {
+  position: relative;
+  height: 280px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sumfest-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 6s ease;
+}
+
+.sumfest-form-banner:hover .sumfest-banner-img {
+  transform: scale(1.08);
+}
+
+.sumfest-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+}
+
+.sumfest-badge {
+  align-self: flex-start;
+  background: var(--reggae-gold);
+  color: var(--reggae-green);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  animation: pulseBadge 2.5s infinite;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.sumfest-banner-title {
+  color: #ffffff;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Accent Reggae Bar */
+.sumfest-accent-bar {
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--reggae-green) 0%, var(--reggae-gold) 50%, var(--reggae-red) 100%);
+  position: relative;
+  z-index: 10;
+}
+
+/* Form Content Body Wrapper */
+.sumfest-form-content {
+  padding: 3rem 2.5rem;
+}
+
+/* Intro Text styling */
+.sumfest-intro {
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.sumfest-intro h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--reggae-green);
+  margin-bottom: 0.75rem;
+}
+
+.sumfest-intro p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Form Body spacing */
+.sumfest-form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Section Box Styling */
+.sumfest-form-section {
+  background: #fbfdff;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.sumfest-form-section:hover {
+  border-color: rgba(26, 71, 42, 0.1);
+  box-shadow: 0 10px 30px rgba(26, 71, 42, 0.02);
+}
+
+.section-heading-custom {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--reggae-green);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--reggae-green-light);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Form Row layout (2 columns) */
+.sumfest-form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .sumfest-form-grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Form Group Layout */
+.sumfest-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Labels and Extras */
+.sumfest-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.required-star {
+  color: var(--reggae-red);
+}
+
+.label-optional {
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* Inputs and Selects styling */
+.sumfest-input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background: #ffffff;
+  border: 1.5px solid rgba(15, 23, 42, 0.15);
+  border-radius: 10px;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.sumfest-input::placeholder {
+  color: var(--text-light);
+}
+
+.sumfest-input:hover {
+  border-color: rgba(26, 71, 42, 0.35);
+}
+
+.sumfest-input:focus {
+  border-color: var(--reggae-green);
+  box-shadow: 0 0 0 4px rgba(26, 71, 42, 0.1);
+  background: #ffffff;
+}
+
+/* Select overrides */
+.sumfest-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19.5 8.25l-7.5 7.5-7.5-7.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+/* Textarea overrides */
+.sumfest-textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Custom Radio Selector Cards
+   ========================================================================== */
+.sumfest-card-selector-grid-2,
+.sumfest-card-selector-grid-3,
+.sumfest-card-selector-grid-4 {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sumfest-card-selector-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.sumfest-card-selector-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.sumfest-card-selector-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 768px) {
+  .sumfest-card-selector-grid-3 { grid-template-columns: 1fr; }
+  .sumfest-card-selector-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .sumfest-card-selector-grid-2,
+  .sumfest-card-selector-grid-4 { grid-template-columns: 1fr; }
+}
+
+/* The Selector Card Label Wrapper */
+.sumfest-selector-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  background: #ffffff;
+  border: 1.5px solid rgba(15, 23, 42, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  user-select: none;
+}
+
+.sumfest-radio-hidden {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Radio Indicator Circle */
+.selector-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(15, 23, 42, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  flex-shrink: 0;
+}
+
+.selector-circle::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--reggae-gold);
+  transform: scale(0);
+  transition: var(--transition-smooth);
+}
+
+.selector-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.3;
+  transition: var(--transition-smooth);
+}
+
+/* Selector Card States */
+.sumfest-selector-card:hover {
+  border-color: rgba(26, 71, 42, 0.3);
+  background: #fafcfb;
+}
+
+.sumfest-selector-card.selected {
+  border-color: var(--reggae-green);
+  background: var(--reggae-green-light);
+}
+
+.sumfest-selector-card.selected .selector-circle {
+  border-color: var(--reggae-green);
+  background: var(--reggae-green);
+}
+
+.sumfest-selector-card.selected .selector-circle::after {
+  transform: scale(1);
+}
+
+.sumfest-selector-card.selected .selector-text {
+  color: var(--reggae-green);
+}
+
+
+/* ==========================================================================
+   Custom Checkbox Cards
+   ========================================================================== */
+.sumfest-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .sumfest-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sumfest-checkbox-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  background: #ffffff;
+  border: 1.5px solid rgba(15, 23, 42, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  user-select: none;
+}
+
+.sumfest-checkbox-hidden {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Checkbox Indicator Square */
+.selector-square {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 2px solid rgba(15, 23, 42, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  flex-shrink: 0;
+}
+
+.selector-square::after {
+  content: "✓";
+  color: var(--reggae-gold);
+  font-size: 0.75rem;
+  font-weight: 950;
+  opacity: 0;
+  transform: scale(0);
+  transition: var(--transition-smooth);
+}
+
+/* Checkbox Card States */
+.sumfest-checkbox-card:hover {
+  border-color: rgba(26, 71, 42, 0.3);
+  background: #fafcfb;
+}
+
+.sumfest-checkbox-card.selected {
+  border-color: var(--reggae-green);
+  background: var(--reggae-green-light);
+}
+
+.sumfest-checkbox-card.selected .selector-square {
+  border-color: var(--reggae-green);
+  background: var(--reggae-green);
+}
+
+.sumfest-checkbox-card.selected .selector-square::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.sumfest-checkbox-card.selected .selector-text {
+  color: var(--reggae-green);
+}
+
+
+/* ==========================================================================
+   Coordination notice box / Disclaimer
+   ========================================================================== */
+.sumfest-disclaimer-card {
+  display: flex;
+  gap: 1rem;
+  background: #fffdf5;
+  border-left: 4px solid var(--reggae-gold);
+  border-radius: 0 12px 12px 0;
+  padding: 1.25rem 1.5rem;
+  margin: 0.5rem 0;
+  border-top: 1px solid rgba(255, 215, 0, 0.15);
+  border-right: 1px solid rgba(255, 215, 0, 0.15);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+.disclaimer-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.disclaimer-content h4 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #b27a00;
+  margin: 0 0 0.25rem 0;
+}
+
+.disclaimer-content p {
+  font-size: 0.85rem;
+  color: #7c5c00;
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   Submit Button
+   ========================================================================== */
+.sumfest-submit-btn {
+  width: 100%;
+  padding: 1.1rem;
+  background: var(--reggae-green);
+  color: var(--reggae-gold);
+  border: 2px solid var(--reggae-green);
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 8px 25px rgba(26, 71, 42, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine effect on button hover */
+.sumfest-submit-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: all 0.6s ease;
+}
+
+.sumfest-submit-btn:hover::before {
+  left: 150%;
+}
+
+.sumfest-submit-btn:hover {
+  background: var(--reggae-green-hover);
+  border-color: var(--reggae-green-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(26, 71, 42, 0.3);
+}
+
+.sumfest-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Submitting spinner state */
+.sumfest-submit-btn.submitting {
+  background: var(--reggae-green-light);
+  color: var(--reggae-green);
+  border-color: var(--reggae-green-light);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-spinner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(26, 71, 42, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--reggae-green);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* ==========================================================================
+   Animated Success Screen Card
+   ========================================================================== */
+.sumfest-success-card {
+  max-width: 650px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 28px;
+  box-shadow: var(--shadow-premium);
+  padding: 4rem 3rem;
+  text-align: center;
+  animation: formSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.success-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+}
+
+.checkmark-svg {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 3;
+  stroke: var(--reggae-green);
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px var(--reggae-green);
+  animation: fillCircle .4s ease-in-out .4s forwards, scaleCheckmark .3s ease-in-out .9s both;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+  stroke: var(--reggae-green);
+  fill: none;
+  animation: strokeCircle .6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: var(--reggae-gold);
+  animation: strokeCheck .3s cubic-bezier(0.65, 0, 0.45, 1) .8s forwards;
+}
+
+@keyframes strokeCircle {
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes fillCircle {
+  100% { box-shadow: inset 0px 0px 0px 40px var(--reggae-green); }
+}
+
+@keyframes strokeCheck {
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes scaleCheckmark {
+  0%, 100% { transform: none; }
+  50% { transform: scale3d(1.1, 1.1, 1); }
+}
+
+.success-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--reggae-green);
+  margin-bottom: 1rem;
+}
+
+.success-message {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.success-highlight {
+  color: var(--reggae-green);
+  font-weight: 700;
+}
+
+.success-details {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+}
+
+.success-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@media (max-width: 540px) {
+  .success-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+.success-btn-home,
+.success-btn-whatsapp {
+  padding: 0.9rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.success-btn-home {
+  background: var(--reggae-green-light);
+  color: var(--reggae-green);
+  border: 1.5px solid var(--reggae-green-light);
+}
+
+.success-btn-home:hover {
+  background: rgba(26, 71, 42, 0.12);
+}
+
+.success-btn-whatsapp {
+  background: #25d366;
+  color: #ffffff;
+  border: 1.5px solid #25d366;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+}
+
+.success-btn-whatsapp:hover {
+  background: #20ba59;
+  border-color: #20ba59;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
 }
