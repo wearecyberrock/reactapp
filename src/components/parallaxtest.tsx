@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, Variants } from "framer-motion";
 import SumfestPopup from './SumfestPopup'; // Explicit
 const sectionVariants: Variants = {
@@ -47,7 +47,7 @@ const ParallaxTest: React.FC = () => {
             </p>
 
             <div className="hero-actions">
-              <a className="btn-primary" href="#pricing">Get the Guide</a>
+              <a className="btn-primary" href="#contact">Get the Guide</a>
               <a className="btn-secondary" href="#contact">Book a Review</a>
               <div className="jahtaria-btn-wrapper" style={{ position: 'relative' }}>
                 {isHovered && 
@@ -256,57 +256,7 @@ const ParallaxTest: React.FC = () => {
           </div>
       </motion.section>
 
-      <motion.section 
-        className="pricing-section" 
-        id="pricing"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        variants={sectionVariants}
-      >
-          <div className="section-heading">
-            <span className="eyebrow">Packages</span>
-            <h2>Choose the best package for your application</h2>
-          </div>
 
-          <div className="pricing-grid">
-            <article className="pricing-card">
-              <p className="pricing-label">Preparation Guide</p>
-              <p className="price">JMD 4,000</p>
-              <p className="pricing-subtitle">Digital guide only</p>
-              <ul className="pricing-list">
-                <li>Comprehensive visa preparation guide</li>
-                <li>Checklist for DS-160 and supporting documents</li>
-                <li>Interview readiness tips</li>
-              </ul>
-              <a className="btn-secondary" href="#contact">Get the Guide</a>
-            </article>
-
-            <article className="pricing-card featured">
-              <p className="pricing-label">Guide + Review Session</p>
-              <p className="price">JMD 13,000</p>
-              <p className="pricing-subtitle">Most popular</p>
-              <ul className="pricing-list">
-                <li>Everything in the guide package</li>
-                <li>One-on-one document review</li>
-                <li>Personalized interview prep</li>
-              </ul>
-              <a className="btn-primary" href="#contact">Book a Review</a>
-            </article>
-
-            <article className="pricing-card">
-              <p className="pricing-label">Premium Support</p>
-              <p className="price">JMD 19,000</p>
-              <p className="pricing-subtitle">Guide + priority review</p>
-              <ul className="pricing-list">
-                <li>Fast turnaround review</li>
-                <li>Dedicated WhatsApp support</li>
-                <li>Follow-up guidance before your appointment</li>
-              </ul>
-              <a className="btn-secondary" href="#contact">Start Now</a>
-            </article>
-          </div>
-      </motion.section>
 
       <motion.section 
         className="contact-section" 
