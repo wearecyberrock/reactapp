@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, Variants } from "framer-motion";
 import SumfestPopup from './SumfestPopup'; // Explicit
 const sectionVariants: Variants = {
