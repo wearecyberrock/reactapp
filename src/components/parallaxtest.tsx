@@ -289,7 +289,7 @@ const ParallaxTest: React.FC = () => {
             </div>
           </div>
 
-          <p className="footer-note">© 2026 Jahtaria Travel. All rights reserved.</p>
+          <p className="footer-note">© 2026 Jjahtaria Travel. All rights reserved.</p>
       </motion.section>
 
       <SumfestPopup isOpen={showSumfestPopup} setIsOpen={setShowSumfestPopup} />
