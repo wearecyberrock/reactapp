@@ -66,6 +66,33 @@ export default function SumfestTravelForm() {
     });
   };
 
+  const sendToSheet = async (data: FormData) => {
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxTdB9HpYVofV7EzoXAYxnqBGtRjxvurr3XaoT5EjoorXyfwm95FnCEihaBaHKab4hX/exec', {
+        method: 'POST',
+        // Google Apps Script requires a workaround for CORS with JSON.
+        // We send as text/plain and the script will parse it.
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      });
+      const result = await response.json();
+      if (result.result !== 'success') { // Assuming your script returns { "result": "success" }
+        throw new Error(result.message || 'Unknown sheet error');
+      }
+    } catch (err) {
+      console.error('Sheet sync failed:', err);
+      // Reuse the existing admin template to send an error alert
+      send('service_91zmng8', 'template_xk9vnxj', {
+        fullName: '⚠️ SHEET SYNC FAILED',
+        email: (err as Error).message,
+        additionalNotes: `Failed submission data: ${JSON.stringify(data)}`,
+      }).catch((e) => console.error('Even the error alert failed:', e));
+
+      // Re-throw the error so Promise.all fails and the user is alerted.
+      throw err;
+    }
+  };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -82,6 +109,7 @@ export default function SumfestTravelForm() {
 
     Promise.all([
       send(serviceId, adminTemplateId, templateParams),
+      sendToSheet(formData), // Call the sheet sync function
       send(serviceId, welcomeTemplateId, templateParams)
     ])
       .then(() => {
@@ -89,7 +117,15 @@ export default function SumfestTravelForm() {
       })
       .catch((err) => {
         console.error('FAILED...', err);
-        alert('Something went wrong. Please try again or contact us via WhatsApp.');
+        let errorMessage = 'An unknown error occurred.';
+        if (err instanceof Error) {
+          errorMessage = err.message;
+        }
+        // A TypeError often indicates a network or CORS issue from the browser's perspective.
+        if (err instanceof TypeError) {
+          errorMessage = 'Network error or CORS issue. Please check the Google Apps Script deployment permissions and URL.';
+        }
+        alert(`Submission failed: ${errorMessage}\n\nPlease check the browser console (F12) for more details and contact support if the problem persists.`);
       })
       .finally(() => {
         setIsSubmitting(false);
