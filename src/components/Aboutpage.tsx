@@ -46,8 +46,8 @@ const AboutPage: React.FC = () => {
               <p>
                 Email: <a href="mailto:Jahtariatravelservices@gmail.com">Jahtariatravelservices@gmail.com</a>
               </p>
-              <p>Instagram: @jahtaria.travel.services</p>
-              <p>TikTok: @jahtaria.travel.services</p>
+              <p>Instagram: <a href="https://www.instagram.com/jahtaria.travel.services" target="_blank" rel="noopener noreferrer">@jahtaria.travel.services</a></p>
+              <p>TikTok: <a href="https://www.tiktok.com/@jahtaria.travel.services" target="_blank" rel="noopener noreferrer">@jahtaria.travel.services</a></p>
             </div>
           </ScrollReveal>
         </div>

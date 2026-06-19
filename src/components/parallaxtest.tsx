@@ -284,8 +284,8 @@ const ParallaxTest: React.FC = () => {
             </div>
             <div className="contact-card">
               <h4>Follow us</h4>
-              <p>Instagram: @jahtaria.travel.services</p>
-              <p>TikTok: @jahtaria.travel.services</p>
+              <p>Instagram: <a href="https://www.instagram.com/jahtaria.travel.services" target="_blank" rel="noopener noreferrer">@jahtaria.travel.services</a></p>
+              <p>TikTok: <a href="https://www.tiktok.com/@jahtaria.travel.services" target="_blank" rel="noopener noreferrer">@jahtaria.travel.services</a></p>
             </div>
           </div>
 
