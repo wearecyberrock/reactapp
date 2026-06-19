@@ -806,11 +806,7 @@ body, button, input, textarea, select {
   }
 
   .passport-container {
-    position: relative;
-    top: auto;
-    height: auto;
-    margin: 0 auto;
-    padding: 2rem 0;
+    display: none;
   }
 
   .author-portrait {
