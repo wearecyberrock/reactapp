@@ -835,22 +835,19 @@ body, button, input, textarea, select {
   .hero-card-wrapper {
     position: relative;
     width: calc(100% - 2rem);
+    max-width: 360px;
     left: auto;
     right: auto;
+    top: auto;
+    bottom: auto;
     transform: none;
     animation: none;
   }
 
-  .hero-card-top {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    transform: none;
-  }
-
+  .hero-card-top,
   .hero-card-bottom {
     position: relative;
+    top: auto;
     bottom: auto;
     left: auto;
     right: auto;
