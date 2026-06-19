@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   color-scheme: light;
@@ -46,8 +46,8 @@ body, button, input, textarea, select {
   align-items: center;
   padding: 1.25rem 3rem;
   background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
   z-index: 999;
@@ -228,6 +228,7 @@ body, button, input, textarea, select {
   background-color: rgba(255, 255, 255, 0.1) !important;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
@@ -247,8 +248,8 @@ body, button, input, textarea, select {
 
 .hero-metric {
   background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   padding: 1.5rem 1.25rem;
@@ -302,8 +303,8 @@ body, button, input, textarea, select {
   padding: 1.5rem;
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: 
     0 10px 30px rgba(15, 23, 42, 0.04),
@@ -364,8 +365,7 @@ body, button, input, textarea, select {
 }
 
 /* Hide visual assets when only text cards are desired */
-.passport-container .passport-card,
-.passport-container .author-portrait {
+.passport-container {
   display: none;
 }
 
@@ -382,8 +382,8 @@ body, button, input, textarea, select {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .passport-face-back {
@@ -562,8 +562,8 @@ body, button, input, textarea, select {
 .contact-card {
   position: relative;
   background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 24px;
   padding: 2.25rem 2rem;
@@ -805,6 +805,20 @@ body, button, input, textarea, select {
     grid-column: span 1;
   }
 
+  .hero-visual {
+    min-height: 0;
+    height: auto;
+  }
+
+  .passport-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    height: auto;
+    position: relative;
+  }
+
   .passport-container {
     position: relative;
     top: auto;
@@ -819,24 +833,25 @@ body, button, input, textarea, select {
   }
 
   .hero-card-wrapper {
+    position: relative;
     width: calc(100% - 2rem);
-    left: 50%;
-    transform: translateX(-50%);
+    max-width: 360px;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
     animation: none;
   }
 
-  .hero-card-top {
-    top: -1rem;
-    right: auto;
-    left: 50%;
-    transform: translate(-50%, 16px);
-  }
-
+  .hero-card-top,
   .hero-card-bottom {
-    bottom: -1rem;
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
     right: auto;
-    left: 50%;
-    transform: translate(-50%, -16px);
+    transform: none;
   }
 }
 
@@ -1327,7 +1342,7 @@ body, button, input, textarea, select {
   }
 
   .hero-visual {
-    min-height: 380px;
+    min-height: 0;
   }
 
   .passport-container {
