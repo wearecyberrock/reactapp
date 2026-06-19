@@ -6,6 +6,7 @@ import ParallaxTest from './components/parallaxtest';
 import AboutPage from "./components/Aboutpage";
 import Footer from "./components/Footer"; // Keep Footer
 import SumfestTravelForm from './sumfestform';
+import ScrollToAnchor from './components/ScrollToAnchor'; // Import the new component
 import "./App.css"
 import { init } from '@emailjs/browser';
 
@@ -18,6 +19,7 @@ const App: React.FC = () => {
 
   return (
     <BrowserRouter>
+      <ScrollToAnchor />
       <Routes>
         {/* Main Landing Page */}
         <Route path="/" element={
