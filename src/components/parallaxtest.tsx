@@ -116,17 +116,19 @@ const ParallaxTest: React.FC = () => {
 
             <div className="hero-visual">
               <div className="passport-stage">
-                <motion.div 
-                  className="hero-card hero-card-top"
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                >
-                  <p className="card-label">Ready for embassy review</p>
-                  <h3>Document-ready applications</h3>
-                  <p>We help you prepare DS-160, supporting documents, and interview answers in one streamlined process.</p>
-                </motion.div>
+                <div className="hero-card-wrapper hero-card-top">
+                  <motion.div 
+                    className="hero-card"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                  >
+                    <p className="card-label">Ready for embassy review</p>
+                    <h3>Document-ready applications</h3>
+                    <p>We help you prepare DS-160, supporting documents, and interview answers in one streamlined process.</p>
+                  </motion.div>
+                </div>
 
                 <div className="passport-container">
                   <motion.div 
@@ -149,17 +151,19 @@ const ParallaxTest: React.FC = () => {
                   </motion.div>
                 </div>
 
-                <motion.div 
-                  className="hero-card hero-card-bottom"
-                  initial={{ opacity: 0, y: 16 }} // Matched with hero-card-top's offset
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                >
-                  <p className="card-label">Personalized support</p>
-                  <h3>Case review session</h3>
-                  <p>Get one-on-one feedback on your application before you submit for a smoother experience.</p>
-                </motion.div>
+                <div className="hero-card-wrapper hero-card-bottom">
+                  <motion.div 
+                    className="hero-card"
+                    initial={{ opacity: 0, y: 16 }} // Matched with hero-card-top's offset
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                  >
+                    <p className="card-label">Personalized support</p>
+                    <h3>Case review session</h3>
+                    <p>Get one-on-one feedback on your application before you submit for a smoother experience.</p>
+                  </motion.div>
+                </div>
               </div>
             </div>
           </motion.div>
