@@ -805,6 +805,18 @@ body, button, input, textarea, select {
     grid-column: span 1;
   }
 
+  .hero-visual {
+    min-height: 0;
+  }
+
+  .passport-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    height: auto;
+  }
+
   .passport-container {
     position: relative;
     top: auto;
@@ -819,24 +831,24 @@ body, button, input, textarea, select {
   }
 
   .hero-card-wrapper {
+    position: static;
     width: calc(100% - 2rem);
-    left: 50%;
-    transform: translateX(-50%);
+    max-width: 360px;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
     animation: none;
   }
 
-  .hero-card-top {
-    top: -1rem;
-    right: auto;
-    left: 50%;
-    transform: translate(-50%, 16px);
-  }
-
+  .hero-card-top,
   .hero-card-bottom {
-    bottom: -1rem;
+    top: auto;
+    bottom: auto;
+    left: auto;
     right: auto;
-    left: 50%;
-    transform: translate(-50%, -16px);
+    transform: none;
   }
 }
 
